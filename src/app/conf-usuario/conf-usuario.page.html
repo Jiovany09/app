@@ -1,0 +1,39 @@
+
+
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-button slot="start" (click)="tabs2()"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-item color="secondary">
+      <ion-title style="text-align: center  ">Confguraciones del usuario</ion-title>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <br><br><br>
+  <ion-card>
+  <br><br><br><br>
+    <div style="text-align: center;">
+      <img src="assets/logo1.png ">
+    </div>
+    <br><br><br><br>
+
+    <ion-list>
+<!--      <ion-item>-->
+<!--        <ion-icon slot="start" name="moon"> </ion-icon>-->
+<!--        <ion-label>Modo Oscuro</ion-label>-->
+<!--        <ion-toggle [ngModel]="darkMode"-->
+<!--                    (ionChange)="change()"></ion-toggle>-->
+<!--      </ion-item>-->
+        <ion-button  type="submit" shape="round" expand="block" [routerLink]="['/info-usuario']" style="border-radius: 50px"><ion-icon name="create-outline"></ion-icon>Editar Cuenta</ion-button>
+        <br>
+        <ion-button [routerLink]="['/logout', 1]" type="submit" shape="round" expand="block" style="border-radius: 50px"><ion-icon name="log-out-outline"></ion-icon> Cerrar Sesión</ion-button>
+        <br>
+        <ion-button  color="danger" shape="round" expand="block" style="border-radius: 50px;" (click)="deleteAccount()"><ion-icon name="trash-outline" ></ion-icon>Borrar cuenta</ion-button>
+        <br>
+
+    </ion-list>
+
+  </ion-card>
+</ion-content>

@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title style="text-align: center">Detalles del usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="centrado" >
+    <ion-card >
+    <ion-icon style="height: 50px;width: 50px;text-align: center"  name="person-circle-outline"></ion-icon>
+  </ion-card>
+
+    <form #editNew="ngForm" (ngSubmit)="onSubmit(editNew)">
+      <ion-item style="border-radius: 20px">
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-textarea
+                type="text"
+                [(ngModel)]="identity.nombre"
+                name="nombre"
+                id="nombre"
+                placeholder="Nombre"
+                class="form-control"
+                minlength="5" maxlength="20"
+                required>
+
+        </ion-textarea>
+        <ion-icon style="margin-top: 40px" name="person-circle-outline" slot="start"></ion-icon>
+      </ion-item>
+
+      <ion-item style="border-radius: 20px">
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input
+
+                type="text"
+                [(ngModel)]="user.paterno"
+                name="paterno"
+                id="paterno"
+                placeholder="Apellido"
+                class="form-control"
+                minlength="5" maxlength="20"
+                required>
+
+        </ion-input>
+        <ion-icon style="margin-top: 40px" name="person-circle-outline" slot="start"></ion-icon>
+      </ion-item>
+      <ion-item style="border-radius: 20px">
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input
+                type="text"
+                [(ngModel)]="identity.materno"
+                name="materno"
+                id="materno"
+                placeholder="Apellido"
+                class="form-control"
+                minlength="5" maxlength="20"
+                required>
+
+        </ion-input>
+        <ion-icon style="margin-top: 40px" name="person-circle-outline" slot="start"></ion-icon>
+      </ion-item>
+
+      <ion-item style="border-radius: 20px">
+        <ion-label position="floating">Teléfono</ion-label>
+        <ion-input
+                type="tel"
+                [(ngModel)]="identity.telefono"
+                class="form-control"
+                name="telefono"
+                id="telefono"
+                placeholder="Teléfono"
+                pattern="^[1,2,3,4,5,6,7,8,9]\d{9}$"
+                required></ion-input>
+        <ion-icon style="margin-top: 40px" name="call-outline" slot="start"></ion-icon>
+      </ion-item>
+
+      <br>
+      <ion-button type="submit" shape="round" expand="block"   [disabled]="!editNew.form.valid">Guardar</ion-button>
+      <br>
+      <ion-button  shape="round" expand="block" routerLink="/conf-usuario" >Cancelar</ion-button>
+    </form>
+    <br>
+    <br>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+        <ion-title>Lámparas</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-label  *ngIf="!lamparas">
+        <ion-label>
+            <ion-text>Cargando lamparas...</ion-text>
+        </ion-label>
+    </ion-label>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-card>
+        <ion-title style="text-align: center;color: black">Listado de lámparas</ion-title>
+    </ion-card>
+
+    <ion-grid style="text-align: center" *ngIf="lamparas">
+        <ion-card>
+            <ion-searchbar placeholder="Nombre de lampara" animated (ionChange)="buscar( $event )"></ion-searchbar>
+            <ion-row class="line">
+                <ion-col class="title1">Lámparas</ion-col>
+                <ion-col class="title1">Contenedor</ion-col>
+                <ion-col class="title1">Activo/Apagado</ion-col>
+            </ion-row>
+            <br>
+            <ion-row *ngFor="let lampara of lamparas | filtro: textoBuscar">
+                <ion-col>
+                    <ion-text>{{lampara.lampara}}</ion-text>
+                </ion-col>
+                <ion-col>
+                    <ion-text
+                            [routerLink]="['/detalle-contenedor',lampara.contenedor_id]">{{lampara.contenedores.contenedor}}</ion-text>
+                </ion-col>
+                <ion-col>
+                    <ion-toggle id="{{lampara.id}}" [checked]="lampara.estado" name="blueberry"
+                                (ionChange)="onChange($event)"></ion-toggle>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-content>
+  <ion-card>
+  <div class="face">
+    <div class="band">
+      <div class="red"></div>
+      <div class="white"></div>
+      <div class="blue"></div>
+    </div>
+    <div class="eyes"></div>
+    <div class="dimples"></div>
+    <div class="mouth"></div>
+  </div>
+
+    <h1>Error 404</h1>
+    <h1>Página no encontrada</h1>
+    <!--  <div class="btn" >Regresar</div>-->
+    <ion-button shape="round" *ngIf="!identity"expand="block" routerLink="/login" >Regresar</ion-button>
+    <ion-button shape="round" *ngIf="identity" expand="block" routerLink="/tabs/inicio" >Regresar</ion-button>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,129 @@
+<ion-content>
+    <ion-card-header class="register">
+
+        <ion-item-group style="text-align: center;color: #1a1a1a;font-size: x-large;">Registrate</ion-item-group>
+
+        <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)"
+              style="margin-top: 30px; margin-left: 20px;margin-right: 20px">
+            <ion-item style="border-radius: 20px">
+                <ion-label position="floating">Nombre</ion-label>
+                <ion-input
+                    #name
+                    type="text"
+                    [(ngModel)]="user.nombre"
+                    name="nombre"
+                    id="nombre"
+                    placeholder="Nombre"
+                    class="form-control"
+                    minlength="5" maxlength="20"
+                    required>
+
+                </ion-input>
+                <ion-icon style="margin-top: 40px" name="person-circle-outline" slot="start"
+                ></ion-icon>
+            </ion-item>
+            <br>
+            <ion-item style="border-radius: 20px">
+                <ion-label position="floating">Apellido</ion-label>
+                <ion-input
+                    #surname
+                    type="text"
+                    [(ngModel)]="user.paterno"
+                    name="paterno"
+                    id="paterno"
+                    placeholder="Apellido paterno"
+                    class="form-control"
+                    minlength="5" maxlength="25"
+                    required>
+
+                </ion-input>
+                <ion-icon style="margin-top: 40px" name="person-circle-outline" slot="start"
+                ></ion-icon>
+            </ion-item>
+            <br>
+            <ion-item style="border-radius: 20px">
+                <ion-label position="floating">Apellido</ion-label>
+                <ion-input
+                    #surname
+                    type="text"
+                    [(ngModel)]="user.materno"
+                    name="materno"
+                    id="materno"
+                    placeholder="Apellido materno"
+                    class="form-control"
+                    minlength="5" maxlength="25"
+                    required>
+
+                </ion-input>
+                <ion-icon style="margin-top: 40px" name="person-circle-outline" slot="start"
+                ></ion-icon>
+            </ion-item>
+            <br>
+            <ion-item style="border-radius: 20px">
+                <ion-label position="floating">Teléfono</ion-label>
+                <ion-input
+                    #telefono
+                    type="tel"
+                    [(ngModel)]="user.telefono"
+                    class="form-control"
+                    name="telefono"
+                    id="telefono"
+                    placeholder="Teléfono"
+                    pattern="^[1,2,3,4,5,6,7,8,9]\d{9}$"
+                    required></ion-input>
+                <ion-icon style="margin-top: 40px" name="call-outline" slot="start"
+                ></ion-icon>
+            </ion-item>
+            <br>
+            <ion-item style="border-radius: 20px">
+                <ion-label position="floating">Correo</ion-label>
+                <ion-input
+                    #email
+                    type="email"
+                    [(ngModel)]="user.email"
+                    class="form-control"
+                    name="correo"
+                    id="correo"
+                    placeholder="ejemplo@gmail.com"
+                    pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+                    required></ion-input>
+                <ion-icon style="margin-top: 40px" name="mail-outline" slot="start"></ion-icon>
+            </ion-item>
+            <br>
+            <ion-item style="border-radius: 20px">
+                <ion-label position="floating">Contraseña</ion-label>
+                <ion-input
+                    #password
+                    type="password"
+                    [(ngModel)]="user.password"
+                    name="password"
+                    id="password"
+                    placeholder="Contraseña"
+                    required
+                    minlength="8" maxlength="18">
+
+                </ion-input>
+                <ion-icon style="margin-top: 40px" name="lock-closed-outline" slot="start"></ion-icon>
+            </ion-item>
+            <br>
+            <ion-button type="submit" shape="round" expand="block" [disabled]="!registerForm.form.valid">Registrarse
+            </ion-button>
+            <br>
+            <ion-button shape="round" expand="block" routerLink="/login">Cancelar</ion-button>
+        </form>
+    </ion-card-header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <ion-label>
+
+            <ion-img style="width: 250px;height: 250px" src="assets/REGISTER.png"></ion-img>
+    </ion-label>
+
+</ion-content>

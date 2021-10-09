@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+        <ion-buttons slot="start">
+            <ion-button slot="start" (click)="tabs2()"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+        </ion-buttons>
+        <ion-item color="secondary" >
+            <ion-title style="text-align:center">Contenedor</ion-title>
+        </ion-item>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card>
+        <ion-title style="text-align: center;color: black">Detalle de contenedor</ion-title>
+    </ion-card>
+    <form #newLampara="ngForm" (ngSubmit)="onSubmit(newLampara.value)" style="margin-top: 30px; margin-left: 20px;margin-right: 20px;"
+          *ngIf="identity.tipo == 'empleado'">
+        <ion-button type="submit" expand="block">Agregar lámpara
+            <ion-icon name="add-circle-outline"></ion-icon>
+        </ion-button>
+
+    </form>
+    <ion-grid>
+        <ion-card>
+            <ion-row>
+                <ion-col class="col1">Lámparas</ion-col>
+                <ion-col class="col1">Contenedor</ion-col>
+                <ion-col class="col1">Encendido / Apagado</ion-col>
+
+            </ion-row>
+            <ion-row *ngFor="let lampconte of lamparas">
+                <ion-col>
+                    <ion-text >{{lampconte.lampara}}</ion-text>
+                </ion-col>
+                <ion-col>
+                    <ion-text >{{lampconte.contenedores.contenedor}}</ion-text>
+                </ion-col>
+                <ion-col>
+                    <ion-toggle name="blueberry" id="{{lampconte.id}}" [checked]="lampconte.estado" (ionChange)="onChange($event)"></ion-toggle>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+    </ion-grid>
+</ion-content>

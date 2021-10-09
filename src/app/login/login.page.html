@@ -1,0 +1,64 @@
+<ion-content>
+
+    <ion-card-content class="login">
+
+        <ion-card>
+
+        </ion-card>
+
+
+        <br>
+        <br>
+        <br>
+        <ion-list-header>
+
+            <ion-label style="align-items: center; margin: auto 13%;"><img src="assets/logoSVG.svg"></ion-label>
+        </ion-list-header>
+        <br>
+        <br>
+        <ion-label>
+            <ion-item-group style="text-align: center;color: #1a1a1a;font-size: x-large;">Iniciar Sesión
+            </ion-item-group>
+        </ion-label>
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)"
+              style="margin-top: 30px; margin-left: 20px;margin-right: 20px;">
+
+            <ion-item style="border-radius: 50px">
+                <ion-label position="floating" for="correo">Correo Electrónico</ion-label>
+                <ion-input
+                        type="email"
+                        [(ngModel)]="user.email"
+                        class="form-control"
+                        name="correo"
+                        placeholder="ejemplo@gmail.com"
+                        id="email"
+                        #filterName
+                        required></ion-input>
+                <!--pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"-->
+
+            </ion-item>
+            <br>
+            <ion-item style="border-radius: 50px">
+                <ion-label position="floating" for="password">Contraseña</ion-label>
+                <ion-input
+                    #filterName
+                    #password="ngModel"
+                    type="password"
+                    [(ngModel)]="user.password"
+                    aria-label=""
+                    class="form-control"
+                    name="password"
+                    id="password"
+                    placeholder="Contraseña" required
+                    minlength="8" maxlength="18"></ion-input>
+            </ion-item>
+            <ion-button type="submit" shape="round" expand="block" style="margin-bottom: 20px; margin-top: 20px;"
+                        [disabled]="!loginForm.form.valid">Iniciar Sesión
+            </ion-button>
+            <ion-button shape="round" expand="block" routerLink="/registrar">Registrarse</ion-button>
+        </form>
+    </ion-card-content>
+    <br>
+    <br>
+
+</ion-content>

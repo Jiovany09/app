@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+        <ion-title>
+            Contenedores
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-card >
+        <ion-title style="text-align: center;color: black" >Listado de contenedores</ion-title>
+    </ion-card>
+
+    <ion-grid>
+        <ion-card style="text-align: center">
+                <ion-searchbar placeholder="Nombre de contenedor" animated (ionChange)="buscar( $event )"></ion-searchbar>
+            <ion-row class="line">
+                    <ion-col class="title1">Contenedor</ion-col>
+                    <ion-col class="title1">Energía contenida</ion-col>
+                    <ion-col class="title1">Lámparas conectadas</ion-col>
+                    <ion-col class="title1">Activo / Apagado</ion-col>
+            </ion-row>
+            <br>
+            <ion-row  *ngFor="let contenedor of contenedores | filtroContenedor: textoBuscar" >
+
+                <ion-col>
+                    <ion-text [routerLink] ="['/detalle-contenedor',contenedor.id]">{{contenedor.contenedor}}</ion-text>
+                </ion-col>
+                <ion-col>
+                    <ion-progress-bar [style.--progress-background]="getColor(contenedor.energia_contenida)" buffer="0.1"
+                                      value="{{contenedor.energia_contenida/100}}"></ion-progress-bar>
+                </ion-col>
+                <ion-col>
+                    <ion-text>{{contenedor.numlamparas}}</ion-text>
+                </ion-col>
+                <ion-col>
+                    <ion-toggle class="form-control" id="{{contenedor.id}}" name="blueberry"  [checked]="contenedor.estado" (ionChange)="onChange($event)"></ion-toggle>
+                </ion-col>
+
+            </ion-row>
+
+        </ion-card>
+
+    </ion-grid>
+</ion-content>
